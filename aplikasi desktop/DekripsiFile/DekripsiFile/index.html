@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Display</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Data Display</h1>
+    <div id="data-container"></div>
+
+    <script>
+        // Fungsi untuk menerima data dari PyQt5 dan menampilkannya pada halaman HTML
+        function displayData(data) {
+            var dataContainer = document.getElementById('data-container');
+            dataContainer.innerHTML = data;
+
+            // Membuat elemen <p> untuk setiap kunci dan nilai dalam data
+            for (var key in data) {
+                if (data.hasOwnProperty(key)) {
+                    var paragraph = document.createElement('p');
+                    paragraph.textContent = key + ': ' + data[key];
+                    dataContainer.appendChild(paragraph);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
